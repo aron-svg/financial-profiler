@@ -1,27 +1,21 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import styles from './Header.module.css'
 
-const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-]
-
 export default function Header() {
+  const location = useLocation()
+  const links = [{ to: '/finances', label: 'Simulation' }, { to: '/resultats', label: 'Résultats' }]
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
         <NavLink to="/" className={styles.logo}>
-          MyApp
+          CAPITAL / CLAIR
         </NavLink>
-        <nav className={styles.nav}>
-          {navLinks.map(({ to, label }) => (
+        <nav className={styles.nav} aria-label="Navigation principale">
+          {links.map(({ to, label }) => (
             <NavLink
               key={to}
               to={to}
-              end
-              className={({ isActive }) =>
-                [styles.link, isActive ? styles.active : ''].join(' ')
-              }
+              className={location.pathname === to ? styles.active : styles.link}
             >
               {label}
             </NavLink>

@@ -5,26 +5,20 @@
 }
 
 :root {
-  --color-primary: #646cff;
-  --color-primary-hover: #535bf2;
-  --color-bg: #ffffff;
-  --color-bg-secondary: #f9fafb;
-  --color-text: #213547;
-  --color-text-muted: #6b7280;
-  --color-border: #e5e7eb;
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --color-primary: #d7f36b;
+  --color-primary-hover: #efffae;
+  --color-bg: #101010;
+  --color-bg-secondary: #1b1b1b;
+  --color-text: #f2f0e9;
+  --color-text-muted: #969691;
+  --color-border: #303030;
+  --accent: #d7f36b;
+  --muted: #969691;
+  --text: #f2f0e9;
+  --font-sans: Georgia, 'Times New Roman', serif;
+  --font-ui: 'Trebuchet MS', Arial, sans-serif;
   --radius: 8px;
   --max-width: 1200px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #1a1a2e;
-    --color-bg-secondary: #16213e;
-    --color-text: #ffffffde;
-    --color-text-muted: #9ca3af;
-    --color-border: #374151;
-  }
 }
 
 html {
@@ -38,6 +32,7 @@ html {
 
 body {
   min-height: 100vh;
+  background: radial-gradient(circle at 80% 0%, #1d2a22 0, transparent 32rem), var(--color-bg);
 }
 
 a {
@@ -58,7 +53,7 @@ button {
   padding: 0.6rem 1.4rem;
   border-radius: var(--radius);
   font-size: 1rem;
-  font-family: inherit;
+  font-family: var(--font-ui);
   transition: background 0.2s;
 }
 

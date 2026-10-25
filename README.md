@@ -1,4 +1,4 @@
-# Website Template
+# Capital / Clair
 
 A production-ready GitHub template for a full-stack website with:
 
@@ -7,27 +7,29 @@ A production-ready GitHub template for a full-stack website with:
 - **Docker** — multi-stage builds, `docker compose` orchestration
 - **CI** — GitHub Actions (lint, build, Docker image build)
 
-## Project structure
+## Architecture
 
 ```
-website_template/
-├── frontend/               # React app
+financial-profiler/
+├── frontend/               # React + TypeScript + Vite : saisie, résultats, visualisation
 │   ├── src/
-│   │   ├── components/     # Layout, Header, Footer
-│   │   └── pages/          # Home, About, NotFound
-│   ├── Dockerfile          # multi-stage: node build → nginx serve
-│   └── nginx.conf          # SPA fallback + API proxy
-├── backend/                # Express REST API
-│   ├── src/
-│   │   └── routes/
-│   └── Dockerfile          # multi-stage: build → slim production image
+│   │   ├── components/     # Layout, navigation, footer
+│   │   └── pages/          # Simulateur, méthode, page 404
+│   ├── Dockerfile
+│   └── nginx.conf
+├── backend/                # Express : futur point d’entrée API
+│   └── src/routes/
+├── analytics/              # Moteur Python indépendant et testable
+│   ├── financial_simulator.py
+│   ├── requirements.txt
+│   └── README.md
 ├── .github/workflows/      # CI pipeline
 ├── docker-compose.yml      # production orchestration
 ├── docker-compose.dev.yml  # development overrides
 └── .env.example            # environment variable template
 ```
 
-## Quick start
+## Lancer l'application
 
 ### Local development (without Docker)
 
@@ -39,8 +41,26 @@ cd backend && npm install && npm run dev
 cd frontend && npm install && npm run dev
 ```
 
-Frontend: http://localhost:3000  
-Backend: http://localhost:4000/api/health
+Frontend : http://localhost:3000  
+Backend : http://localhost:4000/api/health
+
+### Moteur Python
+
+```bash
+cd analytics
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python financial_simulator.py
+```
+
+## Logique de calcul
+
+1. L'épargne mensuelle est `max(0, revenus - dépenses fixes - dépenses variables)`.
+2. Le taux d'épargne est l'épargne mensuelle divisée par le revenu.
+3. Pour chaque scénario, le capital est projeté avec des versements mensuels et une capitalisation mensuelle : `versement × ((1 + taux_mensuel)^mois - 1) / taux_mensuel`.
+4. L'horizon et le profil déterminent l'affichage et l'allocation indicative.
+
+Le moteur actuel est déterministe et pédagogique. La prédiction statistique (Scikit-learn) pourra être ajoutée dans `analytics/` après ingestion de données historiques, sans mélanger cette estimation avec la projection de base.
 
 ### Docker (production)
 

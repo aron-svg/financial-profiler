@@ -1,0 +1,28 @@
+.formGrid { display: grid; gap: 1.2rem; }
+.formGrid label { display: grid; grid-template-columns: 1fr auto; gap: .5rem; color: var(--muted); font: .82rem var(--font-ui); }
+.formGrid label span { color: var(--accent); }
+.formGrid input { grid-column: 1 / -1; width: 100%; border: 0; border-bottom: 1px solid #3a3a3a; border-radius: 0; background: transparent; color: var(--text); padding: .8rem 0; font: 2rem var(--font-ui); outline: none; }
+.formGrid input:focus { border-color: var(--accent); }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 3.5rem 0 2rem; border-top: 1px solid #303030; border-bottom: 1px solid #303030; padding: 1.3rem 0; }
+.summary small { display: block; color: var(--muted); font: .72rem var(--font-ui); }
+.summary strong { display: block; margin-top: .45rem; font: 1.35rem var(--font-ui); }
+.primary, .back { border: 0; padding: .9rem 1.25rem; border-radius: 0; font: .78rem var(--font-ui); cursor: pointer; }
+.primary { background: var(--accent); color: #101010; }
+.primary span { margin-left: 1.5rem; font-size: 1rem; }
+.back { background: transparent; color: var(--muted); padding-left: 0; }
+.choiceGroup { border: 0; margin: 0 0 2.5rem; padding: 0; }
+.choiceGroup legend { margin-bottom: .8rem; color: var(--muted); font: .75rem var(--font-ui); }
+.horizonGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; }
+.choice, .choiceActive { display: grid; place-items: center; gap: .1rem; min-height: 100px; border: 1px solid #363636; border-radius: 0; background: transparent; color: var(--text); cursor: pointer; }
+.choice strong, .choiceActive strong { font: 2rem var(--font-ui); }
+.choice span, .choiceActive span { color: var(--muted); font: .72rem var(--font-ui); }
+.choiceActive { border-color: var(--accent); background: var(--accent); color: #101010; }
+.choiceActive span { color: #101010; }
+.profileGrid { display: grid; gap: .6rem; }
+.profile, .profileActive { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; text-align: left; border: 1px solid #363636; border-radius: 0; background: transparent; color: var(--text); padding: 1rem; cursor: pointer; }
+.profile strong, .profileActive strong { font: 1rem var(--font-ui); }
+.profile span, .profileActive span { color: var(--muted); font: .78rem/1.4 var(--font-ui); }
+.profileActive { border-color: var(--accent); background: #1d2722; }
+.profileActive strong { color: var(--accent); }
+.actions { display: flex; align-items: center; justify-content: space-between; margin-top: 3rem; }
+@media (max-width: 600px) { .summary { grid-template-columns: 1fr 1fr; } .summary div:last-child { grid-column: 1 / -1; } .profile, .profileActive { grid-template-columns: 1fr; gap: .35rem; } }

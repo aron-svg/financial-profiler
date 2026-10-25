@@ -1,5 +1,5 @@
 .header {
-  background-color: var(--color-bg);
+  background-color: rgba(16, 16, 16, 0.9);
   border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
@@ -19,12 +19,14 @@
 .logo {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--text);
   text-decoration: none;
+  letter-spacing: 0.08em;
+  font-family: var(--font-ui);
 }
 
 .logo:hover {
-  color: var(--color-primary);
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -34,17 +36,18 @@
 }
 
 .link {
-  color: var(--color-text-muted);
+  color: var(--muted);
   font-weight: 500;
   text-decoration: none;
   transition: color 0.15s;
+  font-family: var(--font-ui);
 }
 
 .link:hover {
-  color: var(--color-text);
+  color: var(--text);
   text-decoration: none;
 }
 
 .active {
-  color: var(--color-primary);
+  color: var(--accent);
 }

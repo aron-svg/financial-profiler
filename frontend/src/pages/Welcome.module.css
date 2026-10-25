@@ -1,0 +1,16 @@
+.page { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 6rem; min-height: calc(100vh - 150px); }
+.hero { padding: 3rem 0; }
+.eyebrow { color: var(--accent); font: 700 .72rem var(--font-ui); letter-spacing: .15em; text-transform: uppercase; }
+.hero h1 { max-width: 680px; margin: 1.3rem 0; font-size: clamp(3.4rem, 8vw, 7rem); font-weight: 500; line-height: .92; letter-spacing: -.06em; }
+.lead { max-width: 470px; color: var(--muted); font: 1rem/1.6 var(--font-ui); }
+.cta { display: inline-flex; align-items: center; gap: 2rem; margin-top: 2.4rem; background: var(--accent); color: #101010; padding: 1rem 1.2rem; font: 700 .78rem var(--font-ui); }
+.cta span { font-size: 1.2rem; }
+.meta { display: flex; gap: 1.4rem; margin-top: 5rem; color: var(--muted); font: .68rem var(--font-ui); letter-spacing: .08em; }
+.preview { align-self: center; min-height: 390px; display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem; background: #171717; border: 1px solid #303030; transform: rotate(2deg); }
+.previewTop, .previewBottom { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font: .68rem var(--font-ui); }
+.previewTop strong { color: var(--accent); font: 1rem var(--font-ui); }
+.previewBottom { border-top: 1px solid #363636; padding-top: 1rem; }
+.wave { display: flex; align-items: end; gap: .5rem; height: 180px; border-bottom: 1px solid #383838; transform: skewY(-9deg); }
+.wave i { flex: 1; background: linear-gradient(to top, #3b6655, var(--accent)); height: 20%; }
+.wave i:nth-child(2) { height: 28%; }.wave i:nth-child(3) { height: 25%; }.wave i:nth-child(4) { height: 42%; }.wave i:nth-child(5) { height: 38%; }.wave i:nth-child(6) { height: 57%; }.wave i:nth-child(7) { height: 53%; }.wave i:nth-child(8) { height: 74%; }.wave i:nth-child(9) { height: 93%; }
+@media (max-width: 760px) { .page { grid-template-columns: 1fr; gap: 1rem; min-height: auto; } .hero h1 { font-size: clamp(3rem, 16vw, 5rem); } .meta { margin-top: 3rem; } .preview { min-height: 300px; transform: none; } }
