@@ -1,0 +1,22 @@
+# Development overrides — run with:
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+services:
+  frontend:
+    build:
+      target: builder          # stop before the nginx stage
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules      # keep container node_modules isolated
+    environment:
+      - VITE_API_URL=http://localhost:4000
+
+  backend:
+    command: npm run dev
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
